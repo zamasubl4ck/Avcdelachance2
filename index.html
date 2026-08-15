@@ -84,6 +84,19 @@
     flex-shrink:0;
   }
   .visual img{width:100%;height:100%;object-fit:cover;}
+  .slide.outro{
+    justify-content:flex-start;
+    padding-top:34px;
+    overflow-y:auto;
+  }
+  .slide.outro .visual{
+    width:132px;height:152px;
+    border-radius:16px;
+    margin-bottom:18px;
+  }
+  .slide.outro p{
+    text-align:left;
+  }
   .badge{
     font-size:13px;
     letter-spacing:.08em;
@@ -189,9 +202,8 @@
 
 const SLIDES = [
   {
-    badge: "un fait, comme ça",
-    title: "En 3 ans,\nles gens peuvent changer.",
-    text: "Non, sérieusement.\nRegarde plutôt 👉",
+    title: "Et voilà des exemples 👉",
+    text: "",
     emoji: "⏳",
     image: null
   },
@@ -224,10 +236,9 @@ const SLIDES = [
     image: "images/tyson.jpg"
   },
   {
-    title: "Alors...",
-    text: "Tout le monde peut changer en 3 ans.\n\nMerci de m'avoir fait travailler sur moi.\nDésolé encore pour le forcing 😅",
+    text: "En 3 ans, beaucoup de choses peuvent changer.\n\nJ'avais forcé y'a 3 ans, et de manière générale c'était juste très gênant. Je vais pas tout débiter, mais sache juste que je me suis rendu compte pendant ces 3 années que t'es la seule personne à qui je pense vraiment, j'ai ressenti un truc proche de l'amour.\n\nJ'étais vraiment très mitigé à l'idée de te reparler, parce que bah techniquement ça montre que j'ai pas vraiment évolué par rapport au forcing. Après, j'en ai parlé avec ta cousine, et finalement je me suis dit : ça fait longtemps, on verra bien.",
     emoji: "💌",
-    image: null,
+    image: "images/rose.jpg",
     outro: true
   }
 ];
@@ -251,8 +262,8 @@ SLIDES.forEach((s, i) => {
       ${s.image ? `<img src="${s.image}" alt="">` : s.emoji || ''}
     </div>
     ${s.badge ? `<div class="badge">${s.badge}</div>` : ''}
-    <h1>${s.title}</h1>
-    <p>${s.text}</p>
+    ${s.title ? `<h1>${s.title}</h1>` : ''}
+    ${s.text ? `<p>${s.text}</p>` : ''}
   `;
   track.appendChild(el);
 
